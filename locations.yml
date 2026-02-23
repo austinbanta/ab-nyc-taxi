@@ -1,8 +1,6 @@
-defaultStorageMapping: DWH
+defaultStorageMapping: SILVER
 fileVersion: 1
 locations:
-  - DWH
-  - SRC_FIVETRAN_RETAIL
-  - SRC_SAMPLE
-  - SRC_WEATHER
-  - STAGE
+  - BRONZE
+  - GOLD
+  - SILVER

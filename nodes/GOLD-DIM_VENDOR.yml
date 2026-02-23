@@ -1,0 +1,186 @@
+fileVersion: 1
+id: 823d4bf9-8860-478a-bdb6-efd072072981
+name: DIM_VENDOR
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Reference data of all New York City taxi ride vendors
+  isMultisource: false
+  locationName: GOLD
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5694f692-c9f5-49e1-96a4-1c07ee99077e
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_VENDOR_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a0041e1-2a27-425d-9c23-983b195ddbe1
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: true
+        name: VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 881e835a-f491-4408-a71e-10a89b802445
+                stepCounter: e8d0ce9f-896c-4484-b131-fc1f54540898
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ab5b8c5-5706-4f45-a866-3e94a37e72d5
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: STRING
+        description: ""
+        name: VENDOR_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f446965-06d8-484f-96a5-17224abaea3d
+                stepCounter: e8d0ce9f-896c-4484-b131-fc1f54540898
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f087a8d0-9c56-4586-8b56-40cfbc4f0091
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb3515fb-3f0f-4132-9033-86298b1bdafc
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1338ee98-98eb-4033-8d52-a7b81ca9e949
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2283400-ce9a-4f77-8828-a88463fb752a
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22c025a6-20d6-4eb8-82f4-27aabad1d682
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50df23b9-221a-41c8-804e-157e9f525283
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_VENDOR: e8d0ce9f-896c-4484-b131-fc1f54540898
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: STG_VENDOR
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'STG_VENDOR') }} "STG_VENDOR"
+        name: DIM_VENDOR
+        noLinkRefs: []
+  name: DIM_VENDOR
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
