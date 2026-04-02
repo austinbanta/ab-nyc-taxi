@@ -41,8 +41,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 881e835a-f491-4408-a71e-10a89b802445
-                stepCounter: e8d0ce9f-896c-4484-b131-fc1f54540898
+              - columnCounter: 019d4efb-9dba-7335-9624-9b68ce409784
+                stepCounter: b7cdce0a-0997-4065-a1d1-ed58644a5851
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -55,8 +55,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 2f446965-06d8-484f-96a5-17224abaea3d
-                stepCounter: e8d0ce9f-896c-4484-b131-fc1f54540898
+              - columnCounter: 019d4efb-9dbb-70df-9280-10a64bd8ce33
+                stepCounter: b7cdce0a-0997-4065-a1d1-ed58644a5851
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -142,6 +142,23 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a03a49c-c282-4bbc-9c26-9cdb1db94a89
+          stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+        config: {}
+        dataType: STRING
+        description: ""
+        name: ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019d4efb-9dbb-70df-9280-216a8d7a68a9
+                stepCounter: b7cdce0a-0997-4065-a1d1-ed58644a5851
+            transform: ""
     cteString: ""
     description: ""
     destinationName: ""
@@ -149,14 +166,14 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          STG_VENDOR: e8d0ce9f-896c-4484-b131-fc1f54540898
+          STG_VENDOR_ENRICHED: b7cdce0a-0997-4065-a1d1-ed58644a5851
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SILVER
-            nodeName: STG_VENDOR
+            nodeName: STG_VENDOR_ENRICHED
         join:
-          joinCondition: FROM {{ ref('SILVER', 'STG_VENDOR') }} STG_VENDOR
+          joinCondition: FROM {{ ref('SILVER', 'STG_VENDOR_ENRICHED') }} STG_VENDOR_ENRICHED
         name: DIM_VENDOR
         noLinkRefs: []
   name: DIM_VENDOR

@@ -516,6 +516,23 @@ operation:
               - columnCounter: 140a8f4d-15d9-4d81-8ee8-ffd57e4d7421
                 stepCounter: cd9ff3ed-0ebc-4865-86a3-186bb19aebc0
             transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f56b7517-7c50-4302-8c8a-83f210e64147
+          stepCounter: 6384942e-b835-4067-aa2d-114d3ad0a58f
+        config: {}
+        dataType: STRING
+        description: ""
+        name: ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a03a49c-c282-4bbc-9c26-9cdb1db94a89
+                stepCounter: 823d4bf9-8860-478a-bdb6-efd072072981
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

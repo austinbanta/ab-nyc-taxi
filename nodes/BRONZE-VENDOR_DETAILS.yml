@@ -1,0 +1,92 @@
+fileVersion: 1
+id: d13df83e-c9c6-4d88-ad12-dab09e7037c0
+name: VENDOR_DETAILS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: BRONZE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd1ba0a0-327b-461a-a2e2-21a095b575b8
+          stepCounter: d13df83e-c9c6-4d88-ad12-dab09e7037c0
+        config: {}
+        dataType: NUMBER(4,0)
+        defaultValue: ""
+        description: ""
+        name: VENDOR_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61827fae-60b5-4d7f-a1ac-4bd8db45404e
+          stepCounter: d13df83e-c9c6-4d88-ad12-dab09e7037c0
+        config: {}
+        dataType: OBJECT
+        defaultValue: ""
+        description: ""
+        name: HQ_ADDRESS_DETAILS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5766bbc1-a064-462c-bb1b-f5ab9a19a106
+          stepCounter: d13df83e-c9c6-4d88-ad12-dab09e7037c0
+        config: {}
+        dataType: VARCHAR(14)
+        defaultValue: ""
+        description: ""
+        name: PHONE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c696e49c-ebd2-4d06-9368-0fb04064096a
+          stepCounter: d13df83e-c9c6-4d88-ad12-dab09e7037c0
+        config: {}
+        dataType: NUMBER(3,0)
+        defaultValue: ""
+        description: ""
+        name: DRIVERS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: VENDOR_DETAILS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
