@@ -1,0 +1,34 @@
+fileVersion: 2
+id: 96da6079-287d-47d3-bcea-9b94eb08ff12
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: Stage
+    short: STG
+    plural: Stages
+    tagColor: '#2EB67D'
+    config:
+    - groupName: Options
+      items:
+      - type: materializationSelector
+        default: table
+        options:
+        - table
+        - view
+        isRequired: false
+      - displayName: Insert Strategy
+        attributeName: insertStrategy
+        type: dropdownSelector
+        default: INSERT
+        options:
+        - INSERT
+        - MERGE
+        isRequired: false
+      - displayName: Truncate Before
+        attributeName: truncateBefore
+        type: toggleButton
+        default: true
+name: Stage V2
+type: NodeType
