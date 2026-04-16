@@ -1,0 +1,139 @@
+fileVersion: 1
+id: 6b2c7fe6-02b0-4db8-8597-79df49540691
+name: STG_TRIPS_BY_BOROUGH
+operation:
+  config:
+    insertStrategy: INSERT
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Aggregates NYC yellow cab trips by pickup borough from Bronze source tables
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b80ad35a-abfa-4717-ae80-f447c293f327
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: BOROUGH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1956cbc-0c39-48cf-91c3-9f55eb155d98
+                stepCounter: 95f0759a-bf1c-4ec4-a4ff-2a35fea7fa27
+            transform: l.BOROUGH
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44d5e2d4-e74b-4e4a-9f39-96879b7f7c10
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TRIP_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0730ba7d-c4d1-44aa-b16b-8f4f5680d9a6
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9053aafb-8105-443c-9713-e54e38514f0c
+                stepCounter: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+            transform: SUM(t.TOTAL_AMOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 679a598c-710b-4513-8122-5325145ced5a
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_FARE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 075171fc-85e0-4999-969a-8bcc60e56e08
+                stepCounter: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+            transform: SUM(t.FARE_AMOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5bbcfa7-1272-4817-8c96-dd9881ebfb6c
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_TIPS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ff239e5-0284-4817-8d83-cd988de439b7
+                stepCounter: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+            transform: SUM(t.TIP_AMOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90ddc113-c74e-43e8-9a5a-61720a0ba24b
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_TRIP_DISTANCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2ff9c747-6e29-4250-a70a-72dc5d4ae5ea
+                stepCounter: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+            transform: AVG(t.TRIP_DISTANCE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c196c7ca-6ffd-4154-9fee-874cf66883d2
+          stepCounter: 6b2c7fe6-02b0-4db8-8597-79df49540691
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_PASSENGERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2ccb77f-ac34-42af-b636-04dce8ac3184
+                stepCounter: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+            transform: SUM(t.PASSENGER_COUNT)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          YELLOW_CAB_TRIPS: 9bc9b861-892f-4826-bc53-7dbdbb1cc2db
+          LOCATION: 95f0759a-bf1c-4ec4-a4ff-2a35fea7fa27
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: BRONZE
+            nodeName: YELLOW_CAB_TRIPS
+          - locationName: BRONZE
+            nodeName: LOCATION
+        join:
+          joinCondition: |
+            FROM {{ ref('BRONZE', 'YELLOW_CAB_TRIPS') }} t
+            JOIN {{ ref('BRONZE', 'LOCATION') }} l ON t.PU_LOCATION_ID = l.LOCATION_ID
+            GROUP BY l.BOROUGH
+        name: STG_TRIPS_BY_BOROUGH
+        noLinkRefs: []
+  name: STG_TRIPS_BY_BOROUGH
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
